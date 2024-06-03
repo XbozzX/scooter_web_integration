@@ -11,7 +11,7 @@ const addBooking = ({ isOpen, onClose, onEventAdded }) => {
   const [title, setTitle] = useState("");
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
-  console.log(onEventAdded);
+
   const onSubmit = (event) => {
     event.preventDefault;
 

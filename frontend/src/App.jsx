@@ -5,7 +5,10 @@ import BookingPage from "./pages/bookingPage";
 import Scheduler_sc1_Page from "./pages/scheduler_sc1_Page";
 import Scheduler_sc2_Page from "./pages/scheduler_sc2_Page";
 import AboutUs from "./pages/aboutUs";
+import Modal from "react-modal";
 import Calendar from "./components/calendar.jsx";
+
+Modal.setAppElement("#root");
 
 function App() {
   return (
