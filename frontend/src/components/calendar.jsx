@@ -34,14 +34,19 @@ const Calendar = () => {
 
   async function handleDateSet(data) {
     const response = await Axios.get(
-      "http://localhost:5000/api/calendar/get-event?start=" +
-        Moment(data.start).toISOString() +
-        "&end=" +
-        Moment(data.end).toISOString()
+      "http://localhost:5000/api/calendar/get-event"
     );
-    setEvents(response.data);
-  }
+    /*
+    "http://localhost:5000/api/calendar/get-event?start=" +
+    Moment(data.start).toISOString() +
+    "&end=" +
+    Moment(data.end).toISOString()
+    */
 
+    setEvents(response.data);
+    console.log(response.data);
+  }
+  /*
   useEffect(() => {
     const fetchInitialEvents = async () => {
       if (currentDateRange.start && currentDateRange.end) {
@@ -57,7 +62,7 @@ const Calendar = () => {
 
     fetchInitialEvents();
   }, [currentDateRange]);
-
+*/
   return (
     <section>
       <div>
@@ -82,10 +87,7 @@ const Calendar = () => {
             }}
             initialView="dayGridMonth"
             eventAdd={(event) => handleEventAdd(event)}
-            datesSet={(date) => {
-              setCurrentDateRange({ start: date.start, end: date.end });
-              handleDateSet(date);
-            }}
+            datesSet={(date) => handleDateSet(date)}
           />
           <AddBooking
             isOpen={modelOpen}

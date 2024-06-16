@@ -13,13 +13,32 @@ route.post("/create-event", async (request, response) => {
 
 // Get events
 route.get("/get-event", async (request, response) => {
-  const { start, end } = request.query;
-  const events = await BookingSchema.find({
-    start: { $gte: moment(start).toDate() },
-    end: { $lte: moment(end).toDate() },
-  });
+  try {
+    const { start, end } = request.query;
+    const events = await BookingSchema.find();
+    response.send(events);
+  } catch (error) {
+    response.status(500).send({
+      success: false,
+      message: error,
+    });
+  }
 
-  response.send(events);
+  /*
+  try {
+    console.log("run");
+    const { start, end } = request.query;
+    const events = await BookingSchema.find({
+      start: { $gte: moment(start).toDate() },
+      end: { $lte: moment(end).toDate() },
+    });
+    response.send(events);
+  } catch (error) {
+    response.status(500).send({
+      success: false,
+      message: error,
+    });
+  }*/
 });
 
 export default route;
