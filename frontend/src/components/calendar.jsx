@@ -6,6 +6,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import AddBooking from "./addBooking";
 import Axios from "axios";
 import Moment from "moment";
+import AppHeader from "./appHeader";
 
 const Calendar = () => {
   const [modelOpen, setModelOpen] = useState(false);
@@ -66,6 +67,7 @@ const Calendar = () => {
   return (
     <section>
       <div>
+        <AppHeader />
         <div>Booking Calendar</div>
         <div>
           <button
