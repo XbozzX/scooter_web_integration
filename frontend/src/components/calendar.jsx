@@ -7,6 +7,7 @@ import AddBooking from "./addBooking";
 import Axios from "axios";
 import Moment from "moment";
 import AppHeader from "./appHeader";
+import { toast } from "react-toastify";
 
 const Calendar = () => {
   const [modelOpen, setModelOpen] = useState(false);
@@ -16,7 +17,7 @@ const Calendar = () => {
     start: null,
     end: null,
   });
-
+  const [errorMessage, setErrorMessage] = useState("");
   const onEventAdded = (event) => {
     let calendarApi = calendarRef.current.getApi();
     calendarApi.addEvent({
@@ -25,28 +26,53 @@ const Calendar = () => {
       title: event.title,
     });
   };
-
   async function handleEventAdd(data) {
-    await Axios.post(
-      "http://localhost:5000/api/calendar/create-event",
-      data.event
-    );
+    try {
+      const response = await Axios.post(
+        "http://localhost:5000/api/calendar/create-event",
+        data.event
+      );
+      console.log("Success", response.data.event);
+      toast.success("Booking have been created!");
+      setErrorMessage("");
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response.data.error || "Something went wrong"
+      );
+      setErrorMessage(error.response.data.error || "Something went wrong");
+
+      toast.error("Please Fill all the field!");
+    }
   }
 
   async function handleDateSet(data) {
-    const response = await Axios.get(
-      "http://localhost:5000/api/calendar/get-event"
-    );
+    try {
+      const response = await Axios.get(
+        "http://localhost:5000/api/calendar/get-event"
+      );
+      setEvents(response.data);
+      console.log("Success", response.data);
+      toast.success("Data have been refresh!");
+      setErrorMessage("");
+    } catch (error) {
+      console.error(
+        "Error:",
+        error.response.data.error || "Something went wrong"
+      );
+      setErrorMessage(error.response.data.error || "Something went wrong");
+
+      toast.error("Fail to refresh the data! Please contact server admin");
+    }
+
     /*
     "http://localhost:5000/api/calendar/get-event?start=" +
     Moment(data.start).toISOString() +
     "&end=" +
     Moment(data.end).toISOString()
     */
-
-    setEvents(response.data);
-    console.log(response.data);
   }
+
   /*
   useEffect(() => {
     const fetchInitialEvents = async () => {
@@ -87,7 +113,7 @@ const Calendar = () => {
               center: "title",
               right: "dayGridMonth,timeGridWeek,timeGridDay",
             }}
-            initialView="dayGridMonth"
+            initialView="timeGridWeek"
             eventAdd={(event) => handleEventAdd(event)}
             datesSet={(date) => handleDateSet(date)}
           />

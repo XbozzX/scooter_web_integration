@@ -8,6 +8,9 @@ import AboutUs from "./pages/aboutUs";
 import Modal from "react-modal";
 import Calendar from "./components/calendar.jsx";
 import Login from "./pages/login.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Profile from "./pages/profile.jsx";
 
 Modal.setAppElement("#root");
 
@@ -15,12 +18,16 @@ function App() {
   return (
     // PLEASE INSERT THE PATH FOR THE PAGES HERE...
     // DO NOT INSERT ANY CODE THAT NOT PATH PAGES
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route path="/Booking/home" element={<BookingPage />} />
-      <Route path="/Bookings/scheduler_1" element={<Calendar />} />
-      <Route path="/Bookings/scheduler_2" element={<Scheduler_sc2_Page />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/Booking/home" element={<BookingPage />} />
+        <Route path="/Bookings/scheduler_1" element={<Calendar />} />
+        <Route path="/Bookings/scheduler_2" element={<Scheduler_sc2_Page />} />
+        <Route path="/Bookings/profile" element={<Profile />} />
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 

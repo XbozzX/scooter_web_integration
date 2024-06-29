@@ -6,9 +6,21 @@ const route = express.Router();
 
 // Create event
 route.post("/create-event", async (request, response) => {
-  const event = new BookingSchema(request.body);
-  await event.save();
-  response.sendStatus(201);
+  try {
+    if (!request.body.title || !request.body.start || !request.body.end) {
+      return response.status(400).send({ message: "All field is required" });
+    }
+    const newBooking = {
+      title: request.body.title,
+      start: request.body.start,
+      end: request.body.end,
+    };
+    const event = new BookingSchema(newBooking);
+    await event.save();
+    response.json({ message: "Data proccess success" });
+  } catch (error) {
+    return response.status(500).send({ message: error.message });
+  }
 });
 
 // Get events

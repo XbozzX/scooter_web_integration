@@ -43,9 +43,11 @@ const appHeader = () => {
             </Nav>
             <Nav>
               <Nav.Link href="#deets"></Nav.Link>
-              <Nav.Link eventKey={2} href="#memes">
-                Login
-              </Nav.Link>
+              <Link to="/Bookings/profile">
+                <Nav.Link eventKey={2} href="#memes">
+                  Profile
+                </Nav.Link>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
