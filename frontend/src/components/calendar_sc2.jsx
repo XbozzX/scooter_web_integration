@@ -9,7 +9,7 @@ import Moment from "moment";
 import AppHeader from "./appHeader";
 import { toast } from "react-toastify";
 
-const Calendar = () => {
+const Calendar_sc2 = () => {
   const [modelOpen, setModelOpen] = useState(false);
   const calendarRef = useRef(null);
   const [events, setEvents] = useState([]);
@@ -29,7 +29,7 @@ const Calendar = () => {
   async function handleEventAdd(data) {
     try {
       const response = await Axios.post(
-        "http://localhost:5000/api/calendar/create-event",
+        "http://localhost:5000/api/bookingRoute_sc2/create-event",
         data.event
       );
       console.log("Success", response.data.event);
@@ -49,7 +49,7 @@ const Calendar = () => {
   async function handleDateSet(data) {
     try {
       const response = await Axios.get(
-        "http://localhost:5000/api/calendar/get-event"
+        "http://localhost:5000/api/bookingRoute_sc2/get-event"
       );
       setEvents(response.data);
       console.log("Success", response.data);
@@ -128,4 +128,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default Calendar_sc2;

@@ -38,7 +38,21 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Scooter C</Card.Title>
             <Card.Text></Card.Text>
-            <Button variant="primary">Let's go</Button>
+            <Link to="/Bookings/scheduler_3">
+              <Button variant="primary">Let's go</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </div>
+      <div className="row pt-5 m-0.5 col-4">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={scooter_logo} />
+          <Card.Body>
+            <Card.Title>Scooter C</Card.Title>
+            <Card.Text></Card.Text>
+            <Link to="/Bookings/scheduler_3">
+              <Button variant="primary">Let's go</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>

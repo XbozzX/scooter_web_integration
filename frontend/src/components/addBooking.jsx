@@ -34,7 +34,7 @@ const addBooking = ({ isOpen, onClose, onEventAdded }) => {
     <Modal isOpen={isOpen} onRequestClose={onClose}>
       <form onSubmit={onSubmit}>
         <input
-          placeholder="Title"
+          placeholder="Customer Name"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />

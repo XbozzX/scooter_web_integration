@@ -1,5 +1,5 @@
 import express from "express";
-import { BookingSchema } from "../models/booking_DM.js";
+import { BookingSchema_sc1 } from "../models/booking_sc1.js";
 import moment from "moment";
 
 const route = express.Router();
@@ -15,7 +15,7 @@ route.post("/create-event", async (request, response) => {
       start: request.body.start,
       end: request.body.end,
     };
-    const event = new BookingSchema(newBooking);
+    const event = new BookingSchema_sc1(newBooking);
     await event.save();
     response.json({ message: "Data proccess success" });
   } catch (error) {
@@ -27,7 +27,7 @@ route.post("/create-event", async (request, response) => {
 route.get("/get-event", async (request, response) => {
   try {
     const { start, end } = request.query;
-    const events = await BookingSchema.find();
+    const events = await BookingSchema_sc1.find();
     response.send(events);
   } catch (error) {
     response.status(500).send({

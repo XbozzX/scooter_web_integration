@@ -6,7 +6,9 @@
 import express, { request } from "express";
 import { mongoose } from "mongoose";
 import bodyParser from "body-parser";
-import BookingRoute from "./routes/Bookingroute.js";
+import bookingRoute_sc1 from "./routes/Bookingroute_sc1.js";
+import BookingRoute_sc2 from "./routes/Bookingroute_sc2.js";
+import BookingRoute_sc3 from "./routes/Bookingroute_sc3.js";
 import cors from "cors";
 import dotenv from "dotenv";
 
@@ -15,7 +17,10 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use("/api/calendar", BookingRoute);
+
+app.use("/api/bookingRoute_sc1", bookingRoute_sc1);
+app.use("/api/bookingRoute_sc2", BookingRoute_sc2);
+app.use("/api/bookingRoute_sc3", BookingRoute_sc3);
 
 mongoose
   .connect(`${process.env.MONGODB_URI}`)
