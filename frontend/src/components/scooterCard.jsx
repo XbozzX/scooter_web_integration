@@ -1,8 +1,6 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import Scheduler_sc1_Page from "../pages/scheduler_sc1_Page";
-import Scheduler_sc2_Page from "../pages/scheduler_sc2_Page";
 import scooter_logo from "../assets/scooter.png";
 
 function BasicExample() {
@@ -50,7 +48,7 @@ function BasicExample() {
           <Card.Body>
             <Card.Title>Scooter C</Card.Title>
             <Card.Text></Card.Text>
-            <Link to="/Bookings/scheduler_3">
+            <Link to="/Bookings/scheduler_4">
               <Button variant="primary">Let's go</Button>
             </Link>
           </Card.Body>

@@ -18,4 +18,4 @@ const bookingSchema = new mongoose.Schema(
   }
 );
 
-export const BookingSchema_sc3 = mongoose.model("Booking_sc3", bookingSchema);
+export const BookingSchema_sc4 = mongoose.model("Booking_sc4", bookingSchema);

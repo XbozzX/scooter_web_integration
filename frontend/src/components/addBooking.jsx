@@ -3,17 +3,10 @@ import Modal from "react-modal";
 import Datetime from "react-datetime";
 
 const addBooking = ({ isOpen, onClose, onEventAdded }) => {
-  //   Setup Modal
-  //   const [isOpen, setisOpen] = React.useState(false);
-  //   const [onClose, setOnClose] = React.useState(false);
-  //   const [onEventAdded, setOnEventAddedonClose] = React.useState(false);
   // Setup event
   const [title, setTitle] = useState("");
   const [start, setStart] = useState(new Date());
   const [end, setEnd] = useState(new Date());
-
-  console.log(start);
-  console.log(end);
 
   const onSubmit = (event) => {
     event.preventDefault;
@@ -26,9 +19,9 @@ const addBooking = ({ isOpen, onClose, onEventAdded }) => {
 
     onClose();
   };
-  //console.log(title);
-  // console.log(start);
-  //console.log(end);
+  console.log(title);
+  console.log(start);
+  console.log(end);
 
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose}>

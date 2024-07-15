@@ -1,4 +1,3 @@
-//TODO: CREATE A PROPER DATA SCHEMA FOR THE BOOKING SYSTEM
 import { mongoose } from "mongoose";
 
 const bookingSchema = new mongoose.Schema(
