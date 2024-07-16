@@ -1,52 +1,56 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import Scheduler_sc1_Page from "../pages/scheduler_sc1_Page";
-import Scheduler_sc2_Page from "../pages/scheduler_sc2_Page";
+import scooter_logo from "../assets/scooter.png";
 
 function BasicExample() {
   return (
     <div className=" row pt-40">
       <div className=" col-4">
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={scooter_logo} />
           <Card.Body>
-            <Card.Title>V3</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
+            <Card.Title>Scooter A</Card.Title>
+            <Card.Text></Card.Text>
             <Link to="/Bookings/scheduler_1">
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Let's go</Button>
             </Link>
           </Card.Body>
         </Card>
       </div>
       <div className=" col-4">
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={scooter_logo} />
           <Card.Body>
-            <Card.Title>v6</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
+            <Card.Title>Scooter B</Card.Title>
+            <Card.Text></Card.Text>
             <Link to="/Bookings/scheduler_2">
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Let's go</Button>
             </Link>
           </Card.Body>
         </Card>
       </div>
       <div className=" col-4">
         <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src={scooter_logo} />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Title>Scooter C</Card.Title>
+            <Card.Text></Card.Text>
+            <Link to="/Bookings/scheduler_3">
+              <Button variant="primary">Let's go</Button>
+            </Link>
+          </Card.Body>
+        </Card>
+      </div>
+      <div className="row pt-5 m-0.5 col-4">
+        <Card style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={scooter_logo} />
+          <Card.Body>
+            <Card.Title>Scooter C</Card.Title>
+            <Card.Text></Card.Text>
+            <Link to="/Bookings/scheduler_4">
+              <Button variant="primary">Let's go</Button>
+            </Link>
           </Card.Body>
         </Card>
       </div>
